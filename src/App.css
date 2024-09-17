@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Playwrite+CU:wght@100..400&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px;
+}
+body{ 
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 900;
+  overflow-x: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #040202 !important;
+ background-image: url(/src/assets/img/photorealistic-style-clouds.jpg);
+ background-repeat: no-repeat;
+;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  font-family: "Playwrite CU", cursive;
+  font-weight: 900 !important;
+}
+
+p, a, li, button, ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px !important;
+
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+@media (min-width:1700px) {
+	main .container {
+		max-width: 100%;
+		padding: 0 150px;
+	}
+}
+
+
+
+p.success {
+	color: green;
+}
+
+p.danger {
+	color: red;
+}
+h1 , h2 , h3 , h4 , h5 , h6  { 
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+
+/*                                                                NABAR                                                                                  */
+
+.CMCI { 
+  animation: colorChange 5s infinite; /* Animation de 5 secondes en boucle */
+}
+.navbar { 
+  background-color: transparent !important;
+  position: fixed;
+  top: 0; /* Ensure the navbar stays at the top */
+}
+
+
+.vvd {
+  font-weight: 700;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 18px 34px;
+  font-size: 18px;
+  margin-left: 18px;
+	position: relative;
+	background-color: transparent;
+	transition: 0.3s ease-in-out;
+  overflow: hidden; /* Assure que l'animation de rideau reste à l'intérieur du bouton */
+
+}
+.vvd span{
+  position: relative;
+  z-index: 1; /* Assure que le texte est au-dessus de l'animation */
+}
+
+
+.vvd:hover::before {
+  transform: translateX(0); /* Déplace le rideau à sa position d'origine */
+
+}
+.vvd::before { /*Animation du button  */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ff0000; 
+  transform: translateX(-100%); 
+  transition: transform 0.5s ease-in-out; 
+  z-index: 0 !important; 
+}
+
+.vvd:hover {
+  color: #000000;
+
+}
+.navbar{ 
+  background-color: transparent !important;
+position: fixed;
+width: 100%;
+z-index: 1000;
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-toggler {
+  margin-left: auto;
+}
+.navbar-scrolled {
+  background-color: rgb(255, 255, 255 , 0.7) !important; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease-in-out; 
+}
+@keyframes colorChange {
+  0% {
+    color: #FF0000;
+  }
+  25% {
+    color: #00FF00; 
+  }
+  50% {
+    color: #0000FF;
+  }
+  75% {
+    color: #FFFF00; 
+  }
+  100% {
+    color: #FF0000;
+  }
+}
+
+
+/*                                               MOIIIII                                 */
+.banner {
+  margin-top: 0;
+  padding: 260px 0 100px 0;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner .tagline {
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.banner h1 {
+  font-size: 65px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+.banner p {
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+  font-weight: 900 !important;
+}
+.banner button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+  margin-bottom: 0;
+}
+.banner button:hover svg {
+  margin-left: 25px;
+}
+.banner #imageHeader {
+  animation: updown 3s linear infinite;
+}
+@keyframes updown {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+  
+}
+h1 > .wrap { 
+  font-size: 25px; 
+
+}
+
+/*                       TEMOIGNAGE                                                                       */
+
+.temoignage-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  text-align: left; /* Aligner le texte à gauche */
+  margin: 0 auto;
+  padding: 0 0px; /* Ajustez si nécessaire */
+
+}
+
+.temoignage-text h3 {
+  margin-bottom: 15px;
+  color: #007bff; /* Couleur du titre */
+}
+
+.text-body-secondary {
+  text-align: justify !important;
+  font-size: 25px !important;
+  font-weight: 900 ;
+  color: rgb(0, 0, 0) !important;
+
+  
+}
