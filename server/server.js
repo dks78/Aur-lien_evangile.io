@@ -10,8 +10,17 @@ app.use(express.json()); // Ajoute le middleware pour parser les JSON
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '', // Assurez-vous de définir le mot de passe ici, si nécessaire
     database: 'test'
+});
+
+// Vérifiez si la connexion à la base de données réussit
+db.connect(err => {
+    if (err) {
+        console.error('Erreur de connexion à MySQL:', err);
+        return;
+    }
+    console.log('Connecté à la base de données MySQL.');
 });
 
 // Route de test
@@ -23,7 +32,10 @@ app.get('/', (req, res) => {
 app.get('/users', (req, res) => {
     const sql = "SELECT * FROM users";
     db.query(sql, (err, data) => {
-        if (err) return res.json(err);
+        if (err) {
+            console.error('Erreur lors de la requête SQL:', err); // Log l'erreur
+            return res.status(500).json({ error: err.message });
+        }
         return res.json(data);
     });
 });
@@ -34,18 +46,31 @@ app.post('/users', async (req, res) => {
     const { name, email, password } = req.body;
     
     try {
-        // Hachage du mot de passe
-        const hashedPassword = await bcrypt.hash(password, 10000);
-
-        // Insertion dans la base de données avec le mot de passe haché
-        const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
-        db.query(sql, [name, email, hashedPassword], (err, result) => {
+        // Vérifier si l'utilisateur existe déjà
+        const checkUserSql = "SELECT * FROM users WHERE email = ?";
+        db.query(checkUserSql, [email], async (err, result) => {
             if (err) {
-                console.error('Erreur lors de la requête SQL:', err); // Log l'erreur
+                console.error('Erreur lors de la requête SQL:', err);
                 return res.status(500).json({ error: err.message });
             }
-            const newUser = { id: result.insertId, name, email, password: hashedPassword };
-            return res.status(201).json(newUser);
+
+            if (result.length > 0) {
+                return res.status(409).json({ error: 'Utilisateur déjà existant' });
+            }
+
+            // Hachage du mot de passe
+            const hashedPassword = await bcrypt.hash(password, 10); // Utilisez 10 comme coût
+
+            // Insertion dans la base de données avec le mot de passe haché
+            const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+            db.query(sql, [name, email, hashedPassword], (err, result) => {
+                if (err) {
+                    console.error('Erreur lors de la requête SQL:', err);
+                    return res.status(500).json({ error: err.message });
+                }
+                const newUser = { id: result.insertId, name, email };
+                return res.status(201).json(newUser);
+            });
         });
     } catch (error) {
         console.error('Erreur lors du hachage du mot de passe:', error);

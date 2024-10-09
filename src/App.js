@@ -1,22 +1,39 @@
+// src/App.js
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { NavBar } from "./components/NavBar";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { NavBar } from './components/NavBar';
 import { Moi } from './components/Moi';
 import { Temoignage } from './components/Temoignage';
 import { Evangile } from './components/Evangile';
 import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
 import './App.css';
 
+function HomePage() {
+  return (
+    <>
+      <Moi />
+      <Temoignage />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-        <NavBar />
-        <Moi />
-        <Temoignage />
-        <Evangile />
-        <Contact />
-    </div>
+    <Router>
+      <div className="App">
+        <NavBar />  {/* Navbar sera visible sur toutes les pages */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/evangile" element={<Evangile />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/nouvelle-page" element={<h1>Nouvelle Page</h1>} />
+        </Routes>
+      </div>
+      <Footer />
+    </Router>
+    
   );
 }
 

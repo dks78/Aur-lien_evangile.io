@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Form, Container, Row, Col, Alert } from "react-bootstrap";
 import axios from 'axios';
 
 export const Contact = () => {
@@ -8,7 +8,6 @@ export const Contact = () => {
     const [email, setEmail] = useState('');  // État pour le champ email
     const [password, setPassword] = useState('');  // État pour le champ password
     const [confirmationMessage, setConfirmationMessage] = useState('');  // État pour le message de confirmation
-
     // Récupérer la liste des utilisateurs existants
     useEffect(() => {
         fetch('http://localhost:8081/users')
@@ -23,16 +22,12 @@ export const Contact = () => {
             })
             .catch(err => console.error('Erreur lors de la récupération des utilisateurs:', err));
     }, []);
-
     // Gestion de la soumission du formulaire
     const handleSubmit = async (e) => {
         e.preventDefault();  // Empêche le rafraîchissement de la page
-
         const newUser = { name, email, password };  // Crée un objet avec les données du formulaire
-
         // Réinitialiser les messages avant l'envoi
         setConfirmationMessage('');
-
         try {
             const response = await axios.post('http://localhost:8081/users', newUser);
             const addedUser = response.data;
@@ -52,12 +47,13 @@ export const Contact = () => {
             console.error('Erreur lors de l\'ajout de l\'utilisateur:', error); // Affiche les erreurs potentielles
         }
     };
-
     return (
-        <Container>
+        <Container className="ContactForm">
             <Row>
                 <Col>
-                    <h2>Ajouter un nouvel utilisateur</h2>
+                <div className="text">
+                    Contact us Form
+                </div>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formName">
                             <Form.Label>Nom</Form.Label>
@@ -69,7 +65,6 @@ export const Contact = () => {
                                 required
                             />
                         </Form.Group>
-
                         <Form.Group className="mb-3" controlId="formEmail">
                             <Form.Label>Email</Form.Label>
                             <Form.Control
@@ -80,7 +75,6 @@ export const Contact = () => {
                                 required
                             />
                         </Form.Group>
-
                         <Form.Group className="mb-3" controlId="formPassword">
                             <Form.Label>Mot de passe</Form.Label>
                             <Form.Control
@@ -91,12 +85,13 @@ export const Contact = () => {
                                 required
                             />
                         </Form.Group>
-
-                        <Button variant="primary" type="submit">
-                            Ajouter
-                        </Button>
+                        <div className="form-row submit-btn">
+                            <div className="input-data">
+                                <div className="inner"></div>
+                                <input type="submit" value="submit" />
+                            </div>
+                        </div>
                     </Form>
-
                     {/* Afficher le message de confirmation si présent */}
                     {confirmationMessage && (
                         <Alert variant="success" className="mt-3">
@@ -105,7 +100,6 @@ export const Contact = () => {
                     )}
                 </Col>
             </Row>
-
             {/* Commenté : Liste des utilisateurs si besoin
             <Row className="mt-5">
                 <Col>
