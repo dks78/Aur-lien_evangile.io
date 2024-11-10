@@ -25,12 +25,13 @@ function App() {
       <div className="App">
         <NavBar />  {/* Navbar sera visible sur toutes les pages */}
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/Hom" element={<HomePage />} />
           <Route path="/evangile" element={<Evangile />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/nouvelle-page" element={<h1>Nouvelle Page</h1>} />
         </Routes>
       </div>
+
       <Footer />
     </Router>
     

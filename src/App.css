@@ -5,6 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  transition: all 0.3s ease; /* Applique la transition à toutes les propriétés */
 }
 html {
   scroll-behavior: smooth;
@@ -19,7 +21,9 @@ body{
   color: #040202 !important;
  background-image: url(/src/assets/img/photorealistic-style-clouds.jpg);
  background-repeat: no-repeat;
-;
+ margin: 0;
+ padding: 0;
+ width: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -255,6 +259,8 @@ h1 > .wrap {
 }
 .temoiMargin { 
 margin-bottom: 251px;
+
+
 } 
 .temoignage-text {
   line-height: 1.5;
@@ -291,9 +297,14 @@ margin-bottom: 251px;
 .guerison{
   margin-bottom: 150px !important;
 }
+.tribunale{
 
+  margin-top: 60px;
+}
 /*                                                                    FORM                                                                    */
 .ContactForm{
+  margin-top: 450px;
+  margin-bottom: 450px;
   max-width: 800px;
   background: #fff;
   width: 800px;
@@ -607,3 +618,7 @@ footer{
   color: #878787;
 }
 /* footer */
+
+
+/* Scrool Animate */
+/* Eangile*/

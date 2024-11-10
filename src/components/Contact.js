@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { Form, Container, Row, Col, Alert } from "react-bootstrap";
+import { Form, Container, Row, Col, Alert, Table } from "react-bootstrap";
 import axios from 'axios';
 
 export const Contact = () => {
-    const [data, setData] = useState([]);  // État pour stocker les utilisateurs
-    const [name, setName] = useState('');  // État pour le champ name
-    const [email, setEmail] = useState('');  // État pour le champ email
-    const [password, setPassword] = useState('');  // État pour le champ password
-    const [confirmationMessage, setConfirmationMessage] = useState('');  // État pour le message de confirmation
-    // Récupérer la liste des utilisateurs existants
+    const [data, setData] = useState([]);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmationMessage, setConfirmationMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     useEffect(() => {
         fetch('http://localhost:8081/users')
             .then(res => {
@@ -18,7 +18,7 @@ export const Contact = () => {
                 return res.json();
             })
             .then(fetchedData => {
-                setData(fetchedData);  // Met à jour l'état avec les données récupérées
+                setData(fetchedData);
             })
             .catch(err => console.error('Erreur lors de la récupération des utilisateurs:', err));
     }, []);
@@ -43,8 +43,14 @@ export const Contact = () => {
             } else {
                 alert('Vos informations ont bien été envoyées. Nous vous contacterons dans les plus brefs délais.');  // Affiche une alerte d'erreur
             }
-        } catch (error) {
-            console.error('Erreur lors de l\'ajout de l\'utilisateur:', error); // Affiche les erreurs potentielles
+        }  catch (error) {
+            // Vérifie si c'est une erreur de conflit d'email existant
+            if (error.response && error.response.status === 409) {
+              alert('Ce mail existe déjà.');
+            } else {
+                console.error('Erreur lors de l\'ajout de l\'utilisateur:', error);
+                setErrorMessage('Erreur lors de l\'ajout de l\'utilisateur.');
+            }
         }
     };
     return (
@@ -100,7 +106,7 @@ export const Contact = () => {
                     )}
                 </Col>
             </Row>
-            {/* Commenté : Liste des utilisateurs si besoin
+            { 
             <Row className="mt-5">
                 <Col>
                     <h2>Liste des utilisateurs</h2>
@@ -124,7 +130,7 @@ export const Contact = () => {
                     </Table>
                 </Col>
             </Row> 
-            */}
+            }
         </Container>
     );
 };
