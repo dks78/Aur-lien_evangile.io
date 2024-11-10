@@ -1,16 +1,15 @@
 const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
-const bcrypt = require('bcrypt');  // Importez bcrypt
+const bcrypt = require('bcrypt');
 
 const app = express();
 app.use(cors());
-app.use(express.json()); // Ajoute le middleware pour parser les JSON
-
+app.use(express.json())
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '', // Assurez-vous de définir le mot de passe ici, si nécessaire
+    password: '',
     database: 'test'
 });
 
@@ -57,11 +56,9 @@ app.post('/users', async (req, res) => {
             if (result.length > 0) {
                 return res.status(409).json({ error: 'Utilisateur déjà existant' });
             }
+            
+            const hashedPassword = await bcrypt.hash(password, 10);
 
-            // Hachage du mot de passe
-            const hashedPassword = await bcrypt.hash(password, 10); // Utilisez 10 comme coût
-
-            // Insertion dans la base de données avec le mot de passe haché
             const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
             db.query(sql, [name, email, hashedPassword], (err, result) => {
                 if (err) {
