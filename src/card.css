@@ -1,0 +1,121 @@
+
+
+.image-slider {
+    display: flex;
+    flex-flow: column;
+    width: clamp(360px, 100vw, 1030px);
+    aspect-ratio: 17 / 9;
+    min-height: 450px;
+    overflow: hidden;
+    border-radius: 8px;
+    contain: content;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 2px, rgba(0, 0, 0, 0.9) 0px 2px 4px,
+        rgba(0, 0, 0, 0.25) 0px 4px 8px, rgba(0, 0, 0, 0.9) 0px 8px 16px,
+        rgba(0, 0, 0, 0.15) 0px 16px 32px;
+}
+
+.slider__content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider-control--button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 4;  /* Assurez-vous que le z-index est plus élevé que les autres éléments */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px; /* Largeur du bouton */
+    height: 100%; /* Hauteur complète pour couvrir toute la hauteur du carrousel */
+}
+
+
+.prev-button {
+    left: 0;  /* Positionne le bouton précédent à gauche */
+}
+
+.next-button {
+    right: 0; /* Positionne le bouton suivant à droite */
+}
+
+.icon {
+    width: 2rem;
+    height: 2rem;
+
+}
+
+/* Optionnel : Ajoutez un peu de style aux boutons lors du survol ou de l'activation */
+
+
+
+.image-display {
+    position: fixed;
+    inset: 0;
+}
+
+.slider-navigation {
+    z-index: 10;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-columns: 100%;
+    gap: 1.25rem;
+    padding: 1rem;
+    place-content: center;
+    background-color: var(--navigation-color);
+}
+
+.nav-button {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    aspect-ratio: 17 / 9;
+    transition: filter 150ms linear, scale 266ms ease;
+
+}
+
+@container (max-width: 660px) {
+    .nav-button:not(:has(img)) {
+        background-color: rgb(241, 235, 232);
+    }
+
+    .slider-navigation {
+        display: flex;
+        justify-content: center;
+        padding-block: 1.5em;
+    }
+
+    .nav-button {
+        inline-size: 0.625rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+    }
+
+    .nav-button > .thumbnail {
+        display: none;
+    }
+
+    .nav-button[aria-selected="true"] {
+        background-color: black;
+        scale: 1.5;
+    }
+}
+.slider-text {
+    background-color: rgba(0, 0, 0, 0.4); /* Fond semi-transparent noir */
+    padding-top: 250px !important;
+    z-index: 2;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px 0;
+    color: white; 
+}

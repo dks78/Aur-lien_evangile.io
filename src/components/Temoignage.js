@@ -24,50 +24,6 @@ export const Temoignage = () => {
             </div>
             <div id='temoignage' />
             <h2 className="text-center mb-4">Les Témoignages</h2>
-            <Row className="d-flex align-items-center temoiMargin">
-                {/* Colonne pour le Carousel à gauche */}
-                <Col md={6}>
-                    <Carousel fade={true} className='w-100 carousel-scroll-animate'>
-                        <Carousel.Item>
-                            <img className="d-block w-100" src={image1} alt="First slide" />
-                            <Carousel.Caption>
-                                <h3>Avec Jésus</h3>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img className="d-block w-100" src={image2} alt="Second slide" />
-                            <Carousel.Caption>
-                                <h3>sans Jésus</h3>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                    </Carousel>
-                </Col>
-                <Col md={6}>
-                    <div className="temoignage-text">
-                        <section className="py-5 text-center container">
-                            <div className="row text-center">
-                                <div className="  mx-auto">
-                                    <p className="text-body-secondary">
-                                        Bonjour, je suis un jeune croyant né en 1998 à Paris.
-                                        J'ai commencé mon enfance de manière heureuse, je vivais avec mes deux parents. J'ai toujours vécu dans l'abondance, mais il y avait un problème : mon père était en conflit avec ma mère. Suite à cela, j'ai très vite détesté ma mère, au point de la frapper quand j'étais enfant.
-                                        J'ai sombré dans l'alcool et la drogue très jeune. J'étais en échec scolaire total,
-                                        et je me suis fait renvoyer de plusieurs établissements scolaires, aussi bien au collège qu'au lycée.
-                                        J'ai fait pas mal de gardes à vue, etc. J'étais quelqu'un qui pouvait voler,
-                                        même de la drogue aux gens. Je me suis retrouvé plusieurs fois à agresser des gens dans la rue à plusieurs reprises.
-                                        Mais un jour, un homme a frappé à ma porte et m'a présenté l'Évangile. Avant, j'étais croyant, mais je vivais dans le péché,
-                                        je n'étais pas sauvé. Mais le jour où j'ai accepté le Seigneur Jésus comme Seigneur et Sauveur dans ma vie, c'est là que tout a changé,
-                                        j'ai été délivré du péché. Moi qui aimais voler, aujourd'hui, voler un paquet de bonbons me dérange. Moi qui étais en échec scolaire,
-                                        j'ai fini troisième de ma classe en CAP. Jésus sauve.
-                                    </p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </Col>
-                <a className='lienGuerison' href="#Guérison">
-                    <button className='Mguerison'>Ma Guérison<ArrowDownCircle size={25} /></button>
-                </a>
-            </Row>
             <div id='Guérison'></div>
             <Row className="d-flex align-items-center guerison">
                 <Col xs={12} md={6} className="text-start">

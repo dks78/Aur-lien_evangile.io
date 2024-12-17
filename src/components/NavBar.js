@@ -37,7 +37,7 @@ export const NavBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                     <Nav.Link href="/Hom">hom ?</Nav.Link>
-                        <Nav.Link href="/">Qui suis-je ?</Nav.Link>
+                        <Nav.Link href="/Activite">Activité</Nav.Link>
                         <Nav.Link href="/evangile">évangile</Nav.Link>
                         <Nav.Link href="/contact">contact</Nav.Link>
                     </Nav>

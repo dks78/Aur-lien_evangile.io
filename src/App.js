@@ -9,6 +9,7 @@ import { Evangile } from './components/Evangile';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import './App.css';
+import {Activite } from './components/Activite';
 
 function HomePage() {
   return (
@@ -23,16 +24,16 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavBar />  {/* Navbar sera visible sur toutes les pages */}
+        <NavBar/>
         <Routes>
-          <Route path="/Hom" element={<HomePage />} />
-          <Route path="/evangile" element={<Evangile />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/nouvelle-page" element={<h1>Nouvelle Page</h1>} />
+          <Route path="/Hom" element={<HomePage/>} />
+          <Route path="/evangile" element={<Evangile/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/Activite" element={<Activite/>}/>
         </Routes>
       </div>
 
-      <Footer />
+      <Footer/>
     </Router>
     
   );
