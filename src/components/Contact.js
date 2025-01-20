@@ -107,7 +107,7 @@ export const Contact = () => {
                 </Col>
             </Row>
             { 
-            <Row className="mt-5">
+            /*<Row className="mt-5">
                 <Col>
                     <h2>Liste des utilisateurs</h2>
                     <Table striped bordered hover>
@@ -129,7 +129,7 @@ export const Contact = () => {
                         </tbody>
                     </Table>
                 </Col>
-            </Row> 
+            </Row>*/
             }
         </Container>
     );

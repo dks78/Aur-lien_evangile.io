@@ -39,7 +39,6 @@ p, a, li, button, ul {
   line-height: normal;
   text-decoration: none;
   font-family: "Nerko One", cursive;
-  font-weight: 400;
   font-style: normal;
   font-size: 30px !important;
 
@@ -91,10 +90,7 @@ h1 , h2 , h3 , h4 , h5 , h6  {
 .CMCI { 
   animation: colorChange 5s infinite; /* Animation de 5 secondes en boucle */
 }
-.navbar { 
-  background-color: transparent !important;
-  top: 0; /* Ensure the navbar stays at the top */
-}
+
 
 
 .vvd {
@@ -137,8 +133,14 @@ h1 , h2 , h3 , h4 , h5 , h6  {
   color: #000000;
 
 }
-.navbar{ 
-background-color: transparent !important;
+
+.navbar:hover { 
+ background-color: white !important;
+}
+.navbar
+{
+  background-color: transparent !important;
+position: fixed !important;
 width: 100%;
 z-index: 1000;
 }
@@ -184,15 +186,14 @@ z-index: 1000;
   display: block;
 }
 .banner p {
-  color: #ffffff;
-  font-size: 18px;
+  color: #000000;
+
   letter-spacing: 0.8px;
-  line-height: 1.5em;
+
   width: 96%;
-  font-weight: 900 !important;
 }
 .banner button {
-  color: #fff;
+  color: #000000;
   font-weight: 700;
   font-size: 20px;
   margin-top: 60px;
@@ -216,17 +217,6 @@ z-index: 1000;
 .banner #imageHeader {
   animation: updown 3s linear infinite;
 }
-@keyframes updown {
-    0% {
-        transform: translateY(-20px);
-    }
-    50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
-}
 
 .txt-rotate > .wrap {
   border-right: 0.08em solid #666;
@@ -246,7 +236,7 @@ margin-bottom: 251px;
 
 } 
 .temoignage-text {
-  line-height: 1.5;
+  line-height: 1.8;
   text-align: left; /* Aligner le texte à gauche */
   margin: 0 auto;
   padding: 0 0px; /* Ajustez si nécessaire */
@@ -260,9 +250,9 @@ margin-bottom: 251px;
 
 .text-body-secondary {
   text-align: justify !important;
-  font-size: 23px !important;
-  font-weight: 900 ;
-  color: rgb(0, 0, 0) !important;
+  font-size: 26px !important;  /* Taille de police */
+  letter-spacing: -0.6px !important;  /* Annuler l'espacement des lettres */
+  margin-bottom: 15px;
 }
 
 
@@ -608,26 +598,13 @@ footer{
   height: auto;
   overflow: hidden;
 }
-
-.carousel-caption a > i {
-  margin-top: 155px;
-  font-size: 50px;
-  color: rgb(255, 255, 255);
-  font-weight: 900;
-}
-
-.carousel-caption a > i:hover {
-  color: red;
-}
-
 .img-circle {
-  margin-top: 90px !important;
-  width: 590px !important;
+  margin-top: 150px !important;
+  width: 750px !important;
   height: 607px !important;
-  border-radius: 2%;
 }
 .temoignage-wrapper {
-  max-width: 1519px;
+  max-width: 1919px;
   margin: 0 auto;
   text-align: center;
 }
@@ -637,13 +614,37 @@ footer{
   margin-top: 20px;
 }
 .texte-temoigne{
- line-height: 1.2 !important;
- shape-margin: 10px; 
- font-size: 26.1px !important;
+
+  text-align: justify !important;
+  font-size: 30px !important;  /* Taille de police */
+  letter-spacing: -0.6px !important;  /* Annuler l'espacement des lettres */
+  margin-bottom: 15px;
+  color:rgb(0, 0, 0) !important;
+
 }
-.temoignage-background{
-  padding: 20px;
-     background-color: rgb(255, 255, 255);    
+#canvas-background {
+  position: absolute; /* Le canvas se positionne par rapport à son parent */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Le canvas sera en arrière-plan */
+}
+
+/* Pour garantir que le contenu de la section reste au-dessus du canvas */
+.banner {
+  position: relative;
+  z-index: 1; /* Le contenu sera au-dessus du canvas */
+}
+
+
+.temoignage-background {
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 250px;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Assure-toi que la section occupe toute la hauteur de la fenêtre */
+  overflow: hidden; /* Empêche le débordement */
 }
 
 
@@ -658,36 +659,48 @@ footer{
 }
 
 .carousel-indicators li {
-  width: 8px !important;
-  height: 8px !important;
   border-radius: 50% !important;
   margin: 0 4px !important; 
+  margin-right: 50px !important;
 }
 
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev , .carousel-control-next {
   width: 40px;
   height: 40px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(4, 0, 255);
+  color: #000 !important;
   border-radius: 50%;
-  margin-right: 155px;
+  margin-right: 197px;
+  margin-top: 450px;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
   width: 20px; 
   height: 20px;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 
 .carousel-control-prev:hover, .carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 10, 10, 0.8);
+  
+}
+.mx-auto{
+  margin-top: 100px;
 }
 /* ACCCTIIIVITTTTEEEEEEERRRRRRRRRRRRRRR */
+
+.temoignage-textActivite
+{
+  background-color: rgba(255, 255, 255, 0.6);
+
+  margin-bottom: 105px;
+}
 .text-body-secondaryAcitivite {
   text-align: justify !important;
-  font-size: 24px !important;  /* Taille de police */
-  color: rgb(255, 255, 255) !important;  /* Couleur du texte */
+  font-size: 35px !important;  /* Taille de police */
   letter-spacing: -0.6px !important;  /* Annuler l'espacement des lettres */
-
+  margin-bottom: 15px;
+  
 }
 
 .carousel2{
@@ -697,6 +710,8 @@ footer{
   overflow: hidden;
   pointer-events: none;
 }
+
+
 
 .carousel-item2 {
   --items: 10;
@@ -957,4 +972,19 @@ footer{
   z-index: 0;
   opacity: 0.3;
   font-weight: 900;
+}
+@media (max-width: 1024px) {
+  #canvas-background {
+      width: 100vw !important; /* Vue responsive */
+      height: 100vh !important; /* Vue responsive */
+  }
+}
+
+/* Pour les petits écrans (smartphones) */
+@media (max-width: 768px) {
+  #canvas-background {
+      width: 100% !important;
+      height: auto !important; /* Ajuste la hauteur automatiquement */
+      aspect-ratio: 16/9 !important; /* Optionnel : Maintient un ratio */
+  }
 }

@@ -1,16 +1,17 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 
 const app = express();
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
+
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
-    database: 'test'
+    password: 'Caraboumga78180.',
+    database: 'users' // Assurez-vous que la base de données 'users' existe
 });
 
 // Vérifiez si la connexion à la base de données réussit
@@ -29,7 +30,7 @@ app.get('/', (req, res) => {
 
 // Route pour récupérer les utilisateurs
 app.get('/users', (req, res) => {
-    const sql = "SELECT * FROM users";
+    const sql = "SELECT * FROM new_users"; 
     db.query(sql, (err, data) => {
         if (err) {
             console.error('Erreur lors de la requête SQL:', err); // Log l'erreur
@@ -46,7 +47,7 @@ app.post('/users', async (req, res) => {
     
     try {
         // Vérifier si l'utilisateur existe déjà
-        const checkUserSql = "SELECT * FROM users WHERE email = ?";
+        const checkUserSql = "SELECT * FROM new_users WHERE email = ?";
         db.query(checkUserSql, [email], async (err, result) => {
             if (err) {
                 console.error('Erreur lors de la requête SQL:', err);
@@ -59,7 +60,7 @@ app.post('/users', async (req, res) => {
             
             const hashedPassword = await bcrypt.hash(password, 10);
 
-            const sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+            const sql = "INSERT INTO new_users(name, email, password) VALUES (?, ?, ?)";
             db.query(sql, [name, email, hashedPassword], (err, result) => {
                 if (err) {
                     console.error('Erreur lors de la requête SQL:', err);

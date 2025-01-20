@@ -123,31 +123,29 @@ export const Activite = () => {
     };
     return (
         <section className='Activite'>
-            <div class="module-header">
-                <h2 class="module-title scroll-animate2">Activité
-                    <span>rejoins-nous</span>
-                </h2>
-            </div>
-            <Container>
-                <div className="temoignage-text">
-                    <section className="py-5 text-center container">
-                        <div className="row text-center">
-                            <div className="mx-auto">
-                                <p className="text-body-secondary">
-                                    <h2>Tribunale </h2>
-                                    Nous organisons plusieurs activités. Tu peux nous rejoindre avec grand plaisir pour des moments de partage, des moments de jeux, des sorties entre amis, de nouvelles rencontres, des moments d'apprentissage de la parole, des instants de joie et de bonne humeur, ainsi que des voyages. Bref, vous êtes les bienvenus au cœur de la CMCI Paris.
-                                    Vous serez également enseignés sur de nombreux sujets qui préoccupent les jeunes, tels que :
-                                    Comment vivre une vie chrétienne tout en marchant avec Dieu et être excellent à l'école.
-                                    Comment se marier selon la volonté de Dieu.
-                                    Comment avoir une vie sans péché.
-                                    Connaître qui est le Dieu que nous cherchons.
-                                    Comment avoir une relation avec le Dieu vivant et bien d'autres sujets.
-                                </p>
-                            </div>
-                        </div>
-                    </section>
+            <div className="temoignage-textActivite">
+                <div class="module-header">
+                    <h2 class="module-title scroll-animate2">Activité
+                        <span>rejoins-nous</span>
+                    </h2>
                 </div>
-            </Container>
+                <section className="py-5 text-center container">
+                    <div className="row text-center">
+                        <div className="mx-auto">
+                            <p className="text-body-secondaryAcitivite">
+                                <h2>Nos activités </h2>
+                                Nous organisons plusieurs activités. Tu peux nous rejoindre avec grand plaisir pour des moments de partage, des moments de jeux, des sorties entre amis, de nouvelles rencontres, des moments d'apprentissage de la parole, des instants de joie et de bonne humeur, ainsi que des voyages. Bref, vous êtes les bienvenus au cœur de la CMCI Paris.
+                                Vous serez également enseignés sur de nombreux sujets qui préoccupent les jeunes, tels que :
+                                Comment vivre une vie chrétienne tout en marchant avec Dieu et être excellent à l'école.
+                                Comment se marier selon la volonté de Dieu.
+                                Comment avoir une vie sans péché.
+                                Connaître qui est le Dieu que nous cherchons.
+                                Comment avoir une relation avec le Dieu vivant et bien d'autres sujets.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <section className="carousel-container2">
                 <div className="carousel2" ref={$items}>
                     {[
@@ -176,82 +174,77 @@ export const Activite = () => {
                 <div className="cursor cursor2"></div>
             </section>
             <Container>
-    <div className="image-slider">
-        {/* Texte dynamique associé à chaque image */}
-        <p className="slider-text">{[
-            "Rejoignez-nous pour nos moments d'étude biblique, riches en partage et apprentissage de la parole ! vous aller apprendre , les etudes son portez sur différente histoire de la b",
-            "Découvrez la joie et la convivialité avec nos activités de groupe : jeux, repas partagés, et bien plus !",
-            "Participez à nos cultes communs pour des moments spirituels et communautaires exceptionnels !",
-            "Joignez-vous à notre club de lecture pour explorer des œuvres inspirantes et partager vos réflexions !",
-            "Ne manquez pas nos grands événements : des moments uniques à vivre ensemble dans la foi !",
-            "Célébrez avec nous la fin d'année lors de nos festivités joyeuses et pleines de surprises !"
-        ][currentSlideIndex]}</p>
-        
-        <section className="slider__content">
-            {/* Bouton pour aller à la slide précédente */}
-            <button
-                type="button"
-                className="slider-control--button prev-button"
-                onClick={() => handleAction('prev')}
-            >
-                <svg
-                color='white'
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="icon arrow-left-circle"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        fillRule="evenodd"
-                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
-                    />
-                </svg>
-            </button>
-
-            {/* Affichage de l'image courante */}
-            <main className="image-display">
-                <Image src={images[currentSlideIndex]} fluid />
-            </main>
-
-            {/* Bouton pour aller à la slide suivante */}
-            <button
-                type="button"
-                className="slider-control--button next-button"
-                onClick={() => handleAction('next')}
-            >
-                <svg
-                    color='white'
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="icon arrow-right-circle"
-                    viewBox="0 0 16 16"
-                >
-                    <path
-                        fillRule="evenodd"
-                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
-                    />
-                </svg>
-            </button>
-        </section>
-
-        {/* Navigation des slides (miniatures) */}
-        <nav className="slider-navigation">
-            {images.map((src, index) => (
-                <button
-                    key={index}
-                    className="nav-button"
-                    aria-selected={currentSlideIndex === index}
-                    onClick={() => showSlide(index)}
-                >
-                    <img className="thumbnail" src={src} alt={`Thumbnail ${index + 1}`} />
-                </button>
-            ))}
-        </nav>
-    </div>
-</Container>
-
+                <div className="image-slider">
+                    {/* Texte dynamique associé à chaque image */}
+                    <p className="slider-text">{[
+                        "Rejoignez-nous pour nos moments d'étude biblique, riches en partage et apprentissage de la parole ! vous aller apprendre , les etudes son portez sur différente histoire de la b",
+                        "Découvrez la joie et la convivialité avec nos activités de groupe : jeux, repas partagés, et bien plus !",
+                        "Participez à nos cultes communs pour des moments spirituels et communautaires exceptionnels !",
+                        "Joignez-vous à notre club de lecture pour explorer des œuvres inspirantes et partager vos réflexions !",
+                        "Ne manquez pas nos grands événements : des moments uniques à vivre ensemble dans la foi !",
+                        "Célébrez avec nous la fin d'année lors de nos festivités joyeuses et pleines de surprises !"
+                    ][currentSlideIndex]}</p>
+                    <section className="slider__content">
+                        {/* Bouton pour aller à la slide précédente */}
+                        <button
+                            type="button"
+                            className="slider-control--button prev-button"
+                            onClick={() => handleAction('prev')}
+                        >
+                            <svg
+                                color='white'
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="icon arrow-left-circle"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"
+                                />
+                            </svg>
+                        </button>
+                        {/* Affichage de l'image courante */}
+                        <main className="image-display">
+                            <Image src={images[currentSlideIndex]} fluid />
+                        </main>
+                        {/* Bouton pour aller à la slide suivante */}
+                        <button
+                            type="button"
+                            className="slider-control--button next-button"
+                            onClick={() => handleAction('next')}
+                        >
+                            <svg
+                                color='white'
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                className="icon arrow-right-circle"
+                                viewBox="0 0 16 16"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"
+                                />
+                            </svg>
+                        </button>
+                    </section>
+                    {/* Navigation des slides (miniatures) */}
+                    <nav className="slider-navigation">
+                        {images.map((src, index) => (
+                            <button
+                                key={index}
+                                className="nav-button"
+                                aria-selected={currentSlideIndex === index}
+                                onClick={() => showSlide(index)}
+                            >
+                                <img className="thumbnail" src={src} alt={`Thumbnail ${index + 1}`} />
+                            </button>
+                        ))}
+                    </nav>
+                </div>
+            </Container>
         </section>
     );
 };
